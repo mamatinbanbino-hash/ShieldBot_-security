@@ -1,6 +1,15 @@
 {
+  "version": 2,
   "rewrites": [
     { "source": "/api/analyze", "destination": "/api/analyze.py" },
     { "source": "/api/send", "destination": "/api/send.js" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Powered-By", "value": "Ndiaye Techn Security Engine" }
+      ]
+    }
   ]
 }
