@@ -8,11 +8,11 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'application/json')
         self.end_headers()
         
-        threats = ["Vulnérabilité WebRTC", "Exposition Ports 80/443", "Certificat SSL Invalide", "Injection Browser"]
+        threats = ["Injection Cross-Site (XSS)", "Fuite WebRTC - IP Exposée", "Faille de Header de Sécurité", "Port Système 443 Vulnérable"]
         
         response = {
             "verdict": "VULNÉRABLE",
             "failles": [random.choice(threats)],
-            "engine": "Ndiaye Techn Core v2.2"
+            "score": random.randint(15, 38)
         }
         self.wfile.write(json.dumps(response).encode())
